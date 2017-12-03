@@ -12,7 +12,7 @@ namespace ReColorStockpile.Dialog
 
         public ColorPresets()
         {
-            this.Colors = new Color[6];
+            this.Colors = new Color[12];
             this.Deselect();
             this.IsModified = false;
         }

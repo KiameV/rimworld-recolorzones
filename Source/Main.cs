@@ -18,20 +18,6 @@ namespace ReColorStockpile
 
             Log.Message("SaveStorageSettings: Adding Harmony Postfix to Zone_Stockpile.GetGizmos(IEnumerable<Gizmo>)");
             Log.Message("SaveStorageSettings: Adding Harmony Postfix to Zone_Growing.GetGizmos(IEnumerable<Gizmo>)");
-
-            Dialog.ColorSelectDialog.ChangeColorTexture = ContentFinder<Texture2D>.Get("UI/changecolor", true);
-            Dialog.ColorSelectDialog.ColorPickerTexture = ContentFinder<Texture2D>.Get("UI/colorpicker", true);
-
-            foreach (ModContentPack current in LoadedModManager.RunningMods)
-            {
-                if (current.GetContentHolder<Texture2D>().Get("UI/colorpicker"))
-                {
-                    byte[] data = File.ReadAllBytes(current.RootDir + "/Textures/UI/colorpicker.png");
-                    Dialog.ColorSelectDialog.ColorPickerTexture = new Texture2D(2, 2, TextureFormat.Alpha8, true);
-                    Dialog.ColorSelectDialog.ColorPickerTexture.LoadImage(data, false);
-                    break;
-                }
-            }
         }
     }
 
@@ -42,7 +28,7 @@ namespace ReColorStockpile
         {
             List<Gizmo> l = new List<Gizmo>(__result);
             Command_Action a = new Command_Action();
-            a.icon = ContentFinder<UnityEngine.Texture2D>.Get("UI/changecolor", true);
+            a.icon = Dialog.ColorSelectDialog.ChangeColorTexture;
             a.defaultLabel = "ReColorStockpile.ChangeColor".Translate();
             a.defaultDesc = "ReColorStockpile.ChangeColorDesc".Translate();
             a.activateSound = SoundDef.Named("Click");
@@ -60,7 +46,7 @@ namespace ReColorStockpile
         {
             List<Gizmo> l = new List<Gizmo>(__result);
             Command_Action a = new Command_Action();
-            a.icon = ContentFinder<UnityEngine.Texture2D>.Get("UI/changecolor", true);
+            a.icon = Dialog.ColorSelectDialog.ChangeColorTexture;
             a.defaultLabel = "ReColorStockpile.ChangeColor".Translate();
             a.defaultDesc = "ReColorStockpile.ChangeColorDesc".Translate();
             a.activateSound = SoundDef.Named("Click");

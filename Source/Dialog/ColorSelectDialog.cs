@@ -1,6 +1,6 @@
 ﻿using RimWorld;
 using System.Collections.Generic;
-using System.Linq;
+using System.IO;
 using System.Reflection;
 using System.Text;
 using UnityEngine;
@@ -8,16 +8,34 @@ using Verse;
 
 namespace ReColorStockpile.Dialog
 {
+    [StaticConstructorOnStartup]
     class ColorSelectDialog : Window
     {
-        internal static Texture2D ChangeColorTexture;
-        internal static Texture2D ColorPickerTexture;
-        private static readonly Texture2D ColorPresetTexture = new Texture2D(20, 20);
+        public readonly static Texture2D ChangeColorTexture;
+        public readonly static Texture2D ColorPickerTexture;
+        public readonly static Texture2D ColorPresetTexture = new Texture2D(20, 20);
 
         private readonly ColorPresets ColorPresets;
 
         private readonly SelectionColorWidget SelectionColorWidget;
         private Zone stockpile;
+
+        static ColorSelectDialog()
+        {
+            ChangeColorTexture = ContentFinder<Texture2D>.Get("UI/changecolor", true);
+            ColorPickerTexture = ContentFinder<Texture2D>.Get("UI/colorpicker", true);
+
+            foreach (ModContentPack current in LoadedModManager.RunningMods)
+            {
+                if (current.GetContentHolder<Texture2D>().Get("UI/colorpicker"))
+                {
+                    byte[] data = File.ReadAllBytes(current.RootDir + "/Textures/UI/colorpicker.png");
+                    ColorPickerTexture = new Texture2D(2, 2, TextureFormat.Alpha8, true);
+                    ColorPickerTexture.LoadImage(data, false);
+                    break;
+                }
+            }
+        }
 
         public ColorSelectDialog(Zone_Stockpile stockpile) : base()
         {
