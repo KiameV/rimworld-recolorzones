@@ -41,6 +41,26 @@ namespace ReColorStockpile
                                 }
                             }
                         }
+                        if (version.Equals("Version 2"))
+                        {
+                            for (int i = 0; i < presets.Count; ++i)
+                            {
+                                try
+                                {
+                                    string[] s = sr.ReadLine().Split(new Char[] { ':' });
+                                    Color c = Color.white;
+                                    c.r = float.Parse(s[0]);
+                                    c.g = float.Parse(s[1]);
+                                    c.b = float.Parse(s[2]);
+                                    c.a = float.Parse(s[3]);
+                                    presets[i] = c;
+                                }
+                                catch
+                                {
+                                    presets[i] = Color.white;
+                                }
+                            }
+                        }
                         else
                         {
                             presets = new ColorPresets();
@@ -86,11 +106,11 @@ namespace ReColorStockpile
                 {
                     using (StreamWriter sw = new StreamWriter(fileStream))
                     {
-                        sw.WriteLine("Version 1");
+                        sw.WriteLine("Version 2");
                         for (int i = 0; i < presets.Count; ++i)
                         {
                             Color c = presets[i];
-                            sw.WriteLine(c.r + ":" + c.g + ":" + c.b);
+                            sw.WriteLine(c.r + ":" + c.g + ":" + c.b + ":" + c.a);
                         }
                     }
                 }
