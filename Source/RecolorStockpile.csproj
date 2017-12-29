@@ -50,7 +50,7 @@
     <Compile Include="Dialog\ColorSelectDialog.cs" />
     <Compile Include="Dialog\SelectionColorWidget.cs" />
     <Compile Include="IOUtil.cs" />
-    <Compile Include="Main.cs" />
+    <Compile Include="HarmonyPatches.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />

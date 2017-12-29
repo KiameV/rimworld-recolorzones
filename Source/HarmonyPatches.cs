@@ -9,9 +9,9 @@ using Verse;
 namespace ReColorStockpile
 {
     [StaticConstructorOnStartup]
-    class Main
+    class HarmonyPatches
     {
-        static Main()
+        static HarmonyPatches()
         {
             var harmony = HarmonyInstance.Create("com.savestoragesettings.rimworld.mod");
             harmony.PatchAll(Assembly.GetExecutingAssembly());
