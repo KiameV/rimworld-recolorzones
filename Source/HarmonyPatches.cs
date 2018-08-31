@@ -13,11 +13,14 @@ namespace ReColorStockpile
     {
         static HarmonyPatches()
         {
-            var harmony = HarmonyInstance.Create("com.savestoragesettings.rimworld.mod");
+            var harmony = HarmonyInstance.Create("com.recolorstockpile.rimworld.mod");
             harmony.PatchAll(Assembly.GetExecutingAssembly());
 
-            Log.Message("SaveStorageSettings: Adding Harmony Postfix to Zone_Stockpile.GetGizmos(IEnumerable<Gizmo>)");
-            Log.Message("SaveStorageSettings: Adding Harmony Postfix to Zone_Growing.GetGizmos(IEnumerable<Gizmo>)");
+            Log.Message(
+                "ReColorStockpiles: Harmony Patches:\n" +
+                "    Postfix:\n" +
+                "        Zone_Stockpile.GetGizmos(IEnumerable<Gizmo>)\n" +
+                "        Zone_Growing.GetGizmos(IEnumerable<Gizmo>)");
         }
     }
 
