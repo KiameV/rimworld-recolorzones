@@ -2,7 +2,7 @@
 <LanguageData>
 	<ReColorStockpile.ChangeColor>Cambiar Color</ReColorStockpile.ChangeColor>
 	<ReColorStockpile.ChangeColorDesc>Cambiar el color del área</ReColorStockpile.ChangeColorDesc>
-	<ReColorStockpile.ColorPresetHelp>Modificar: Mantener Shift y seleccionar una preselección.\nDeseleccionar: Mantener Shift y seleccionar la misma preselección.</ReColorStockpile.ColorPresetHelp>
+	<ReColorStockpile.ColorPresetHelp>Modificar: Mantener Shift y elegir una preselección.\nDeseleccionar: Mantener Shift y elegir la misma preselección.</ReColorStockpile.ColorPresetHelp>
 	<ReColorStockpile.Color>Color</ReColorStockpile.Color>
 	<ReColorStockpile.Alpha>Alfa</ReColorStockpile.Alpha>
 </LanguageData>
