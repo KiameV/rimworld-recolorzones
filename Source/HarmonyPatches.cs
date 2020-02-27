@@ -1,4 +1,4 @@
-﻿using Harmony;
+﻿using HarmonyLib;
 using RimWorld;
 using System.Collections.Generic;
 using System.IO;
@@ -13,7 +13,7 @@ namespace ReColorStockpile
     {
         static HarmonyPatches()
         {
-            var harmony = HarmonyInstance.Create("com.recolorstockpile.rimworld.mod");
+            var harmony = new Harmony("com.recolorstockpile.rimworld.mod");
             harmony.PatchAll(Assembly.GetExecutingAssembly());
 
             Log.Message(
