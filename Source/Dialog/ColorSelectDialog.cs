@@ -210,7 +210,7 @@ namespace ReColorStockpile.Dialog
             MapDrawer mapDrawer = Find.CurrentMap.mapDrawer;
             foreach (IntVec3 cell in this.stockpile.cells)
             {
-                mapDrawer.SectionAt(cell).RegenerateLayers(MapMeshFlag.Zone);
+                mapDrawer.SectionAt(cell).RegenerateAllLayers();
             }
         }
 
